@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210107 07:20:19.591" rpa="true">
+<suite id="s1" name="OsakeBot" source="C:\Users\jriim\Documents\worksamples\OsakeBotti\OsakeBot.robot">
+<test id="s1-t1" name="Hae Osake Dataa">
+<kw name="Credentials" type="setup">
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Sähköpostin lähetystä varten,\nAnnatko lähettäjän?</arg>
+</arguments>
+<assign>
+<var>${us}</var>
+</assign>
+<msg timestamp="20210107 07:20:29.433" level="INFO">${us} = jriimala@gmail.com</msg>
+<status status="PASS" starttime="20210107 07:20:20.896" endtime="20210107 07:20:29.433"></status>
+</kw>
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Salasana?</arg>
+</arguments>
+<assign>
+<var>${psw}</var>
+</assign>
+<msg timestamp="20210107 07:20:39.060" level="INFO">${psw} = maigeri7</msg>
+<status status="PASS" starttime="20210107 07:20:29.433" endtime="20210107 07:20:39.060"></status>
+</kw>
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Kenelle?</arg>
+</arguments>
+<assign>
+<var>${toWhom}</var>
+</assign>
+<msg timestamp="20210107 07:20:47.018" level="INFO">${toWhom} = jriimala@gmail.com</msg>
+<status status="PASS" starttime="20210107 07:20:39.060" endtime="20210107 07:20:47.018"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${USER}</arg>
+<arg>${us}</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.018" level="INFO">${USER} = jriimala@gmail.com</msg>
+<status status="PASS" starttime="20210107 07:20:47.018" endtime="20210107 07:20:47.018"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${PASS}</arg>
+<arg>${psw}</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.026" level="INFO">${PASS} = maigeri7</msg>
+<status status="PASS" starttime="20210107 07:20:47.018" endtime="20210107 07:20:47.026"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${To}</arg>
+<arg>${toWhom}</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.026" level="INFO">${To} = jriimala@gmail.com</msg>
+<status status="PASS" starttime="20210107 07:20:47.026" endtime="20210107 07:20:47.026"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:20:20.896" endtime="20210107 07:20:47.026"></status>
+</kw>
+<kw name="Initiate TextFile">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=%d-%m-%Y</arg>
+</arguments>
+<assign>
+<var>${D}</var>
+</assign>
+<msg timestamp="20210107 07:20:47.322" level="INFO">${D} = 07-01-2021</msg>
+<status status="PASS" starttime="20210107 07:20:47.322" endtime="20210107 07:20:47.322"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>{D}</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.322" level="INFO">{D}</msg>
+<status status="PASS" starttime="20210107 07:20:47.322" endtime="20210107 07:20:47.322"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${ReportSubject}</arg>
+<arg>${D}</arg>
+</arguments>
+<assign>
+<var>${RS}</var>
+</assign>
+<msg timestamp="20210107 07:20:47.326" level="INFO">${RS} = Daily Stock Report 07-01-2021</msg>
+<status status="PASS" starttime="20210107 07:20:47.326" endtime="20210107 07:20:47.326"></status>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<doc>Removes a file with the given path.</doc>
+<arguments>
+<arg>stockdata.txt</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.350" level="INFO" html="yes">Removed file '&lt;a href="file://C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt"&gt;C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210107 07:20:47.326" endtime="20210107 07:20:47.350"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>stockdata.txt</arg>
+<arg>${RS}</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.370" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt"&gt;C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210107 07:20:47.354" endtime="20210107 07:20:47.370"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>stockdata.txt</arg>
+<arg>${\n}------------------------------------</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.378" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt"&gt;C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210107 07:20:47.370" endtime="20210107 07:20:47.378"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:20:47.322" endtime="20210107 07:20:47.383"></status>
+</kw>
+<kw name="Alusta Yahoo">
+<arguments>
+<arg>${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210107 07:20:47.394" level="INFO">Opening browser 'chrome' to base url 'https://finance.yahoo.com/'.</msg>
+<status status="PASS" starttime="20210107 07:20:47.388" endtime="20210107 07:20:55.292"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210107 07:20:55.292" endtime="20210107 07:20:57.853"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:20:47.388" endtime="20210107 07:20:57.853"></status>
+</kw>
+<kw name="Sivun validointi">
+<doc>Tarkistetaan, että tarvittavat komponentit löytyvät</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="consent-page"]/div/div/div/div[2]/div[2]/form/button</arg>
+</arguments>
+<msg timestamp="20210107 07:20:57.870" level="INFO">Clicking button '//*[@id="consent-page"]/div/div/div/div[2]/div[2]/form/button'.</msg>
+<status status="PASS" starttime="20210107 07:20:57.867" endtime="20210107 07:21:18.519"></status>
+</kw>
+<kw name="IteroiLista">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>IteroiLista vaihe</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:18.519" endtime="20210107 07:21:18.527"></status>
+</kw>
+<kw name="${osake} IN [ @{autoLista} ]" type="for">
+<kw name="${osake} = CAPMAN.HE" type="foritem">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="yfin-usr-qry"]</arg>
+<arg>${osake}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:18.529" level="INFO">Typing text 'CAPMAN.HE' into text field '//*[@id="yfin-usr-qry"]'.</msg>
+<status status="PASS" starttime="20210107 07:21:18.529" endtime="20210107 07:21:19.930"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="header-desktop-search-button"]</arg>
+</arguments>
+<msg timestamp="20210107 07:21:19.930" level="INFO">Clicking button '//*[@id="header-desktop-search-button"]'.</msg>
+<status status="PASS" starttime="20210107 07:21:19.930" endtime="20210107 07:21:28.695"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="quote-header-info"]/div[2]/div[1]/div[1]/h1</arg>
+</arguments>
+<assign>
+<var>${fetchedText}</var>
+</assign>
+<msg timestamp="20210107 07:21:29.247" level="INFO">${fetchedText} = CapMan Oyj (CAPMAN.HE)</msg>
+<status status="PASS" starttime="20210107 07:21:28.695" endtime="20210107 07:21:29.247"></status>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<doc>Converts string to upper case.</doc>
+<arguments>
+<arg>${fetchedText}</arg>
+</arguments>
+<assign>
+<var>${strUpperCases}</var>
+</assign>
+<msg timestamp="20210107 07:21:29.255" level="INFO">${strUpperCases} = CAPMAN OYJ (CAPMAN.HE)</msg>
+<status status="PASS" starttime="20210107 07:21:29.247" endtime="20210107 07:21:29.255"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${strUpperCases}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:29.255" level="INFO">CAPMAN OYJ (CAPMAN.HE)</msg>
+<status status="PASS" starttime="20210107 07:21:29.255" endtime="20210107 07:21:29.255"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${strUpperCases}</arg>
+<arg>${osake}</arg>
+</arguments>
+<assign>
+<var>${check}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${strUpperCases}</arg>
+<arg>${osake}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:29.255" endtime="20210107 07:21:29.255"></status>
+</kw>
+<msg timestamp="20210107 07:21:29.255" level="INFO">${check} = True</msg>
+<status status="PASS" starttime="20210107 07:21:29.255" endtime="20210107 07:21:29.255"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${check} is ${TRUE}</arg>
+<arg>OsakeLoytyi</arg>
+<arg>${osake}</arg>
+<arg>ELSE</arg>
+<arg>OsakettaEiLoydy</arg>
+</arguments>
+<kw name="OsakeLoytyi">
+<arguments>
+<arg>${osake}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Osakelöytyi vaihe</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:29.263" endtime="20210107 07:21:29.263"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="quote-header-info"]/div[3]/div[1]/div/span[1]</arg>
+</arguments>
+<assign>
+<var>${s}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.004" level="INFO">${s} = 2.3800</msg>
+<status status="PASS" starttime="20210107 07:21:29.270" endtime="20210107 07:21:30.004"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${s}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:30.012" level="INFO">2.3800</msg>
+<status status="PASS" starttime="20210107 07:21:30.012" endtime="20210107 07:21:30.012"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${s}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.012" endtime="20210107 07:21:30.012"></status>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<doc>Converts the given item to a floating point number.</doc>
+<arguments>
+<arg>${s}</arg>
+</arguments>
+<assign>
+<var>${sVal}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.016" level="INFO">${sVal} = 2.38</msg>
+<status status="PASS" starttime="20210107 07:21:30.016" endtime="20210107 07:21:30.016"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sVal}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:30.016" level="INFO">2.38</msg>
+<status status="PASS" starttime="20210107 07:21:30.016" endtime="20210107 07:21:30.016"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="quote-header-info"]/div[3]/div[1]/div/span[2]</arg>
+</arguments>
+<assign>
+<var>${sChange}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.452" level="INFO">${sChange} = +0.0050 (+0.21%)</msg>
+<status status="PASS" starttime="20210107 07:21:30.016" endtime="20210107 07:21:30.452"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${sChange}</arg>
+<arg>(</arg>
+<arg>+</arg>
+<arg>-</arg>
+<arg>%</arg>
+<arg>)</arg>
+</arguments>
+<assign>
+<var>${valText}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.452" level="INFO">${valText} = 0.0050 0.21</msg>
+<status status="PASS" starttime="20210107 07:21:30.452" endtime="20210107 07:21:30.452"></status>
+</kw>
+<kw name="Get Substring" library="String">
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<arguments>
+<arg>${valText}</arg>
+<arg>0</arg>
+<arg>3</arg>
+</arguments>
+<assign>
+<var>${valSubstr}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.460" level="INFO">${valSubstr} = 0.0</msg>
+<status status="PASS" starttime="20210107 07:21:30.452" endtime="20210107 07:21:30.460"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${valSubstr}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.460" endtime="20210107 07:21:30.460"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${valSubstr}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:30.460" level="INFO">0.0</msg>
+<status status="PASS" starttime="20210107 07:21:30.460" endtime="20210107 07:21:30.460"></status>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<doc>Converts the given item to a floating point number.</doc>
+<arguments>
+<arg>${valSubstr}</arg>
+</arguments>
+<assign>
+<var>${sChangeVal}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.460" level="INFO">${sChangeVal} = 0.0</msg>
+<status status="PASS" starttime="20210107 07:21:30.460" endtime="20210107 07:21:30.460"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Osakkeen muutos ${sChangeVal}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:30.467" level="INFO">Osakkeen muutos 0.0</msg>
+<status status="PASS" starttime="20210107 07:21:30.460" endtime="20210107 07:21:30.467"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${osake}</arg>
+<arg>${sVal}</arg>
+<arg>${sChange}</arg>
+</arguments>
+<assign>
+<var>${stuff}</var>
+</assign>
+<msg timestamp="20210107 07:21:30.467" level="INFO">${stuff} = CAPMAN.HE 2.38 +0.0050 (+0.21%)</msg>
+<status status="PASS" starttime="20210107 07:21:30.467" endtime="20210107 07:21:30.467"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${stuff}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.467" endtime="20210107 07:21:30.471"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${EXECDIR}/stockdata.txt</arg>
+<arg>${\n}${\n}${stuff}${\n}</arg>
+</arguments>
+<msg timestamp="20210107 07:21:30.475" level="INFO" html="yes">Appended to file '&lt;a href="file://C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt"&gt;C:\Users\jriim\Documents\worksamples\OsakeBotti\stockdata.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210107 07:21:30.471" endtime="20210107 07:21:30.475"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Sending data via mail if ...</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.479" endtime="20210107 07:21:30.479"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${sVal} &lt; ${2.3}</arg>
+<arg>SEND</arg>
+</arguments>
+<kw name="SEND">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Käyttäjänimi ${USER}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.479" endtime="20210107 07:21:30.523"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Salasana ${PASS}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.523" endtime="20210107 07:21:30.535"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Kenelle ${To}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.535" endtime="20210107 07:21:30.539"></status>
+</kw>
+<kw name="Send Mail With Attachment" library="mailer">
+<arguments>
+<arg>${SMTP_SERVER}</arg>
+<arg>${USER}</arg>
+<arg>${PASS}</arg>
+<arg>${To}</arg>
+<arg>${subject}</arg>
+<arg>${text}</arg>
+<arg>${attach}</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:30.539" endtime="20210107 07:21:32.838"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Osake data ${stuff} from ( ${D}) in your mail box.</arg>
+</arguments>
+<status status="PASS" starttime="20210107 07:21:32.838" endtime="20210107 07:21:32.838"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:30.479" endtime="20210107 07:21:32.838"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:30.479" endtime="20210107 07:21:32.838"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210107 07:21:32.838" endtime="20210107 07:21:37.232"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:29.263" endtime="20210107 07:21:37.232"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:29.263" endtime="20210107 07:21:37.232"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:18.529" endtime="20210107 07:21:37.232"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:18.529" endtime="20210107 07:21:37.232"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:21:18.519" endtime="20210107 07:21:37.240"></status>
+</kw>
+<status status="PASS" starttime="20210107 07:20:57.867" endtime="20210107 07:21:37.240"></status>
+</kw>
+<doc>Purpose to collect stock data based on user preferences and send output to mail box.</doc>
+<tags>
+<tag>1</tag>
+<tag>OsakeHarjoitus</tag>
+<tag>RPA</tag>
+</tags>
+<status status="PASS" starttime="20210107 07:20:20.892" endtime="20210107 07:21:37.247" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210107 07:20:19.599" endtime="20210107 07:21:37.299"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tasks</stat>
+<stat pass="1" fail="0">All Tasks</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">1</stat>
+<stat pass="1" fail="0">OsakeHarjoitus</stat>
+<stat pass="1" fail="0">RPA</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="OsakeBot">OsakeBot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

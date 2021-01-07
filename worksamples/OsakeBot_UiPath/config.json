@@ -1,0 +1,39 @@
+{	
+	"log": {
+		"enabled": true,
+		"generalLogEnabled": true,
+		"messageBox": false,
+		"folder": "log",
+		"prefix": "TravellerBot"
+	},
+	"cleanProcesses": false,
+	"processesToClean": "",
+	"process": {
+		"name": "UiPath.Integrata.TravellerBot",
+		"tripsPath":"C:\\UiPath\\UiPath.Integrata.TravellerBot\\Trips",
+		"sharePointUser":"RPA.Integrata.Azure",
+		"trainBaseUrl":"https://rata.digitraffic.fi/api/v1/live-trains/station/",
+		"route":[
+			"PRI/TPE",
+			"TPE/PRI",
+			"TPE/HKI",
+			"HKI/TPE"		
+		],
+		"stations":{
+			"Helsinki":"HKI",
+			"Tampere":"TPE",
+			"Pori":"PRI"
+		}
+	},
+	"expectedTimeWindowInMinutes": 15,
+	"email": {
+		"enabled": true,
+		"server": "smtp.office365.com",
+		"port": 587,
+		"user": "RPA.EmailSMTP",
+		"timeout": 30000,
+		"recipientTo": "jouni.riimala@integrata.fi",
+		"recipientCc": "",
+		"recipientAdditionalCcErrorCase": ""
+	}
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210106 18:59:50.605" rpa="true">
+<suite id="s1" name="OsakeBot" source="C:\Users\jriim\Documents\worksamples\OsakeBotti\OsakeBot.robot">
+<test id="s1-t1" name="Hae Osake Dataa">
+<kw name="Credentials" type="setup">
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Sähköpostin lähetystä varten,\nAnnatko lähettäjän?</arg>
+</arguments>
+<assign>
+<var>${us}</var>
+</assign>
+<msg timestamp="20210106 18:59:57.565" level="INFO">${us} = asdfasdfa</msg>
+<status status="PASS" starttime="20210106 18:59:51.857" endtime="20210106 18:59:57.568"></status>
+</kw>
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Salasana?</arg>
+</arguments>
+<assign>
+<var>${psw}</var>
+</assign>
+<msg timestamp="20210106 19:00:01.718" level="FAIL">No value provided by user.</msg>
+<status status="FAIL" starttime="20210106 18:59:57.579" endtime="20210106 19:00:01.731"></status>
+</kw>
+<status status="FAIL" starttime="20210106 18:59:51.856" endtime="20210106 19:00:01.732"></status>
+</kw>
+<doc>Purpose to collect stock data based on user preferences and send output to mail box.</doc>
+<tags>
+<tag>1</tag>
+<tag>OsakeHarjoitus</tag>
+<tag>RPA</tag>
+</tags>
+<status status="FAIL" starttime="20210106 18:59:51.844" endtime="20210106 19:00:02.073" critical="yes">Setup failed:
+No value provided by user.</status>
+</test>
+<status status="FAIL" starttime="20210106 18:59:50.613" endtime="20210106 19:00:02.149"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tasks</stat>
+<stat pass="0" fail="1">All Tasks</stat>
+</total>
+<tag>
+<stat pass="0" fail="1">1</stat>
+<stat pass="0" fail="1">OsakeHarjoitus</stat>
+<stat pass="0" fail="1">RPA</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="OsakeBot">OsakeBot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
