@@ -1,0 +1,11 @@
+{
+	"quoteResponse": {
+		"result": [{
+			"language": "en-US",
+			"region": "US",
+			"quoteType": "EQUITY",
+			"quoteSourceName": "Nasdaq Real Time Price",
+			"triggerable": true
+		}]
+	}
+}
